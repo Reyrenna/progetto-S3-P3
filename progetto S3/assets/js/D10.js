@@ -170,7 +170,7 @@ me.skills.pop();
 */
 let numeroRandom;
 function dice() {
-  return numeroRandom = Math.floor(Math.random() * 6) + 1;
+  return (numeroRandom = Math.floor(Math.random() * 6) + 1);
 }
 dice();
 console.log(numeroRandom);
@@ -195,10 +195,10 @@ console.log(confronto);
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
-const testo = "mi piace il formaggio"; 
-function splitMe(){
+const testo = "mi piace il formaggio";
+function splitMe() {
   const arrayTesto = testo.split(" ");
-   console.log(arrayTesto);
+  console.log(arrayTesto);
 }
 splitMe();
 
@@ -208,15 +208,16 @@ splitMe();
 */
 const txt = "ciao";
 const boolean = false;
-function deleteOne(){
-  if(boolean===true){
+function deleteOne() {
+  if (boolean === true) {
     const trueTxt = txt.slice(1);
     console.log(trueTxt);
   } else {
     const falseTxt = txt.slice(0, -1);
     console.log(falseTxt);
-  }};
-  deleteOne();
+  }
+}
+deleteOne();
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -224,34 +225,42 @@ function deleteOne(){
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 const testa = "5 giorni interi a mangiare fonduta";
-function onlyLetters(){
- let testaSenzaNumeri = testa.replace(/[^a-zA-Z]/, " ");
- console.log(testaSenzaNumeri);
-};
+function onlyLetters() {
+  let testaSenzaNumeri = testa.replace(/[^a-zA-Z]/, " ");
+  console.log(testaSenzaNumeri);
+}
 onlyLetters();
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 const email = "reyrenna4@gmail.com";
-function isThisAnEmail(){
-  if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+function isThisAnEmail() {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
     console.log(true);
   } else {
     console.log(false);
   }
-};
+}
 isThisAnEmail();
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
-const nomeGiorni = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+const nomeGiorni = [
+  "Domenica",
+  "Lunedì",
+  "Martedì",
+  "Mercoledì",
+  "Giovedì",
+  "Venerdì",
+  "Sabato",
+];
 const now = new Date();
 const today = now.getDay();
-function giornoCorrente(){
+function giornoCorrente() {
   let oggi = nomeGiorni[today];
   console.log(oggi);
-};
+}
 giornoCorrente();
 
 /* ESERCIZIO 8
@@ -267,48 +276,48 @@ giornoCorrente();
   }
 */
 let volte = 6;
-  const valori = [];
-function rollTheDices(){
-  for(let i = 0; i < volte; i++){
+const valori = [];
+function rollTheDices() {
+  for (let i = 0; i < volte; i++) {
     let tiri = dice();
     valori.push(tiri);
     let sum;
     sum += tiri;
-  };
+  }
   return {
     sum: sum,
     values: valori,
+  };
 }
-};
-console.log(rollTheDices())
+console.log(rollTheDices());
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
 const dataTarget = new Date("2024/11/13");
-function howManyDays(){
+function howManyDays() {
   const differenza = now - dataTarget;
- const quantiGiorni = Math.floor(differenza/ (1000 * 60 * 60 * 24));
-console.log(quantiGiorni);
-};
+  const quantiGiorni = Math.floor(differenza / (1000 * 60 * 60 * 24));
+  console.log(quantiGiorni);
+}
 howManyDays();
-
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 const giornoCompleanno = "23";
 const meseCompleanno = "10";
-function isTodayMyBirthday(){
-   const newDate = new Date();
-   const meseOggi = newDate.getMonth() + 1;
-   const giornoOggi = newDate.getDate();
-   if(giornoCompleanno === giornoOggi && meseCompleanno === meseOggi){
+function isTodayMyBirthday() {
+  const newDate = new Date();
+  const meseOggi = newDate.getMonth() + 1;
+  const giornoOggi = newDate.getDate();
+  if (giornoCompleanno === giornoOggi && meseCompleanno === meseOggi) {
     console.log(true);
-   } else {
+  } else {
     console.log(false);
-   }};
-   isTodayMyBirthday();
+  }
+}
+isTodayMyBirthday();
 
 // Arrays & Oggetti
 
@@ -318,11 +327,25 @@ function isTodayMyBirthday(){
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+const objMoltoCasuale = {
+  nome: "Giacomo",
+  cognome: "Poretti",
+  anni: 95,
+};
+const stringaInfame = "anni";
+function deleteProp() {
+  delete objMoltoCasuale[stringaInfame];
+  console.log(objMoltoCasuale);
+}
+deleteProp();
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
-
+function newestMovie(movies) {
+  console.log(Math.max(...Year));
+}
+newestMovie();
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
@@ -362,31 +385,31 @@ const container = document.getElementById("container");
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-const td = document.getElementsByTagName("td")
+const td = document.getElementsByTagName("td");
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-function ciclo(){
-  for (let i = 0; i < td; i++){
+function ciclo() {
+  for (let i = 0; i < td; i++) {
     let scritta = td.innerText();
-  };
-   console.log(scritta);
+  }
+  console.log(scritta);
 }
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-const link = document.querySelectorAll("a").style.backgroundColor = "red";
+const link = (document.querySelectorAll("a").style.backgroundColor = "red");
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 const myList = document.getElementById("myList");
-function appendere(){
+function appendere() {
   const li = document.createElement("li");
   li.innerText = "blablabla";
   li.appendChild(myList);
-};
+}
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
@@ -428,4 +451,3 @@ tr.classList.add("test");
 */
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
-
